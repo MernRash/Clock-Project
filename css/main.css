@@ -324,7 +324,7 @@ option:hover{
 
     .time-container{
         width: 390px;
-        margin-left: 8px;
+        margin-left: 34px;
         margin-top: -14px;
     }
 
@@ -365,8 +365,8 @@ option:hover{
 
     .box1-times{
         margin-right: 0;
-        width: 385px;
-        padding: 5px;
+        width: 435px;
+        padding: 6px;
     }
 
     #timestamps{
@@ -378,7 +378,7 @@ option:hover{
     
     .lunch-img{
         height: 515px;
-        width: 385px;
+        width: 415px;
         font-size: 1rem;
         top: 460px;
         left: 7px;
@@ -386,7 +386,7 @@ option:hover{
 
     .lunch-img > img{
         height: 425px !important;
-        width: 385px !important;
+        width: 400px !important;
         margin-top: 104px;
     }
 
