@@ -2,36 +2,36 @@
 const hourTime = document.querySelector('.time-hour');
 const minTime = document.querySelector('.time-min');
 const secTime = document.querySelector('.time-sec');
-const aMpM = document.querySelector('#am-time');
+const aMpM = document.querySelector('#am-pm');
 const greeting = document.querySelector('.message');
 
-function concatZero(timeFrame) {
-    return timeFrame < 10 ? '0'.concat(timeFrame) : timeFrame
+function takeZero(timeSpan) {
+    return timeSpan < 10 ? '0'.concat(timeSpan) : timeSpan
 }
 function time() {
-  var d = new Date();
-  var s = d.getSeconds();
-  var m = d.getMinutes();
-  var h = d.getHours();   
-     hourTime.innerHTML =    `${concatZero((h % 12) || 12)}`;
-     minTime.innerHTML  =    `${concatZero(m)}`;
-     secTime.innerHTML  =    `${concatZero(s)}`;
-     aMpM.innerHTML     =    `${h >= 12 ? 'PM' : 'AM'}`;
+  var currentDate = new Date();
+  var currentSeconds = currentDate.getSeconds();
+  var currentMinute = currentDate.getMinutes();
+  var currentHour = currentDate.getHours();   
+     hourTime.innerHTML =    `${takeZero((currentHour % 12) || 12)}`;
+     minTime.innerHTML  =    `${takeZero(currentMinute)}`;
+     secTime.innerHTML  =    `${takeZero(currentSeconds)}`;
+     aMpM.innerHTML     =    `${currentHour >= 12 ? 'PM' : 'AM'}`;
    
      //Greetings Text
 
-  if((h < 12 )){
+  if((currentHour < 12 )){
     greeting.innerHTML = "Good Morning !!";
     
     
   } 
-  else if (h < 18 ){
+  else if (currentHour < 18 ){
     greeting.innerHTML = "Good Afternoon !!";
     
 
   }  
 
-  else if(h < 20){
+  else if(currentHour < 20){
     greeting.innerHTML = "Good Evening !!";
   }
   else{
@@ -40,6 +40,7 @@ function time() {
 }
 setInterval(time, 500);
 // clock section end
+
 
 
 // Image changing according to time
@@ -82,20 +83,32 @@ function night(){
   spanText.innerHTML = "Good Night !!";
 }
 
-let date = new Date();
-let hour = date.getHours();
+const date = new Date();
+const hour = date.getHours();
 
-switch (hour < 12){
+// if(hour < 12){
+//   wakeup();
+// }
 
-  case (hour < 12):
+// else if(hour < 18){
+//   lunch();
+// }
+
+// else{
+//   night();
+// }
+
+switch (true){
+
+  case (hour <= 12):
   wakeup();
   break;
 
-  case(hour < 18):
+  case (hour < 18):
   lunch();
   break;
 
-  case(hour < 23) :
+  case (hour < 23) :
   night();
   break;
 

@@ -174,7 +174,7 @@ header{
     
 }
 
-.trans-box1{
+.box1{
     width: 416px;
     height: 140px;
     background: white;
@@ -185,7 +185,7 @@ header{
     top: 3rem;
 }
 
-.trans-box2 {
+.box2 {
     width: 379px;
     height: 130px;
     background: white;
@@ -214,7 +214,7 @@ header{
     color: #8A11BF;
 }
 
-#time-sub{
+#time-subtext{
     font-size: 23px;
     text-align: center;
     color: #5F0089;
@@ -233,7 +233,7 @@ header{
     color: white;
 }
 
-.box1-times{
+.option-times{
     
     width: 566px;
     height: 300px;
@@ -336,20 +336,20 @@ option:hover{
         width: 60px;
     }
 
-    #time-sub{
+    #time-subtext{
         font-size: 15px;
     }
 
-    #am-time{
+    #am-pm{
         font-size: 1.8rem;
     }
 
-    .trans-box1{
+    .box1{
         width: 310px;
         top: 120px;
     }
 
-    .trans-box2{
+    .box2{
         width: 250px;
         top: 140px;
     }
@@ -363,7 +363,7 @@ option:hover{
         margin-left: 6px;
     }
 
-    .box1-times{
+    .option-times{
         margin-right: 0;
         width: 435px;
         padding: 6px;
@@ -434,7 +434,7 @@ option:hover{
          width: 83px;
      }
  
-     #time-sub{
+     #time-subtext{
          font-size: 22px;
      }
  
@@ -442,12 +442,12 @@ option:hover{
          font-size: 1.8rem;
      }
  
-     .trans-box1{
+     .box1{
          width: 370px;
          top: 123px;
      }
  
-     .trans-box2{
+     .box2{
          width: 290px;
          top: 145px;
      }
@@ -461,7 +461,7 @@ option:hover{
          margin-left: 72px;
      }
  
-     .box1-times{
+     .option-times{
          margin-right: 0;
          width: 550px;
          padding: 15px;

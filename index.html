@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clock Project</title>
+    <link rel="icon" href="./images/logo.ico">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
@@ -26,7 +27,7 @@
             
 
                 <div id="time-main" class="time-hour"></div>
-                <div id="time-sub">Hour</div>
+                <div id="time-subtext">Hour</div>
 
             </div>
             
@@ -35,23 +36,23 @@
 
             <div class="time-boxes">
                 <div id="time-main" class="time-min"></div>
-                <div id="time-sub">Minutes</div>
+                <div id="time-subtext">Minutes</div>
             </div>
 
             <span id="colon">:</span>
 
             <div class="time-boxes">
                 <div id="time-main" class="time-sec"></div>
-                <div id="time-sub">Seconds</div>
+                <div id="time-subtext">Seconds</div>
             </div>
             <span id="colon">:</span>
             
             <div class="time-boxes bg-gradient">
-                <div id="am-time"></div>
+                <div id="am-pm"></div>
              
             </div>
-            <div class="trans-box1"></div>
-            <div class="trans-box2"></div>
+            <div class="box1"></div>
+            <div class="box2"></div>
         </div>
         </div>
     </header>
@@ -59,7 +60,7 @@
     <section>
         <div class="time-set">
 
-            <div class="box1-times">   
+            <div class="option-times">   
 
                 <div class="wakeup-time">
                     <img src="./images/sun.png" alt="wakeup_logo">
@@ -76,7 +77,8 @@
         </div>
                 <div class="wakeup-time">
                     <img src="./images/lunch_icon.png" alt="lunch_logo">
-             Set lunch time <select name="Time" id="timestamps">
+             Set lunch time 
+             <select name="Time" id="timestamps">
                         <option value="8 AM - 9 AM">8 AM - 9 AM</option>
                         <option value="9 AM - 10 AM">9 AM - 10 AM</option>
                         <option value="10 AM - 11 AM">10 AM - 11 AM</option>
@@ -111,6 +113,7 @@
         
         </div>
         <div class="lunch-img" id = "change_img">
+            
             <!-- <img src="./images/lunch.png" alt="lunch_image"> -->
             <span id="ltext"></span>
         </div>
@@ -120,6 +123,6 @@
 
 
     <script src="./js/main.js"></script>
-    <script src="./js/data.js"></script>
+    <!-- <script src="./js/data.js"></script> -->
 </body>
 </html>
