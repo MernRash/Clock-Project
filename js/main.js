@@ -1,115 +1,145 @@
-// Clock section start
+// All Variables 
 const hourTime = document.querySelector('.time-hour');
 const minTime = document.querySelector('.time-min');
 const secTime = document.querySelector('.time-sec');
 const aMpM = document.querySelector('#am-pm');
 const greeting = document.querySelector('.message');
+const partyImg = document.getElementById("change_img");
+
+const currentDate = new Date();
+const currentSeconds = currentDate.getSeconds();
+const currentMinute = currentDate.getMinutes();
+const currentHour = currentDate.getHours(); 
+
+
+const changeImg = document.getElementById("change_img");
+const spanText = document.getElementById('ltext');
+const partyText = document.getElementById("ptext");
+const img = new Image();
+
+const fun = document.querySelector(".party");
+const disableImg = document.querySelectorAll("#wake");
+
+
+
 
 function takeZero(timeSpan) {
     return timeSpan < 10 ? '0'.concat(timeSpan) : timeSpan
 }
 function time() {
-  var currentDate = new Date();
-  var currentSeconds = currentDate.getSeconds();
-  var currentMinute = currentDate.getMinutes();
-  var currentHour = currentDate.getHours();   
+ 
      hourTime.innerHTML =    `${takeZero((currentHour % 12) || 12)}`;
      minTime.innerHTML  =    `${takeZero(currentMinute)}`;
      secTime.innerHTML  =    `${takeZero(currentSeconds)}`;
      aMpM.innerHTML     =    `${currentHour >= 12 ? 'PM' : 'AM'}`;
    
-     //Greetings Text
 
-  if((currentHour < 12 )){
-    greeting.innerHTML = "Good Morning !!";
-    
-    
-  } 
-  else if (currentHour < 18 ){
-    greeting.innerHTML = "Good Afternoon !!";
-    
 
-  }  
-
-  else if(currentHour < 20){
-    greeting.innerHTML = "Good Evening !!";
-  }
-  else{
-    greeting.innerHTML = "Good Night !!";
-  }
 }
 setInterval(time, 500);
-// clock section end
 
-
+  
+ if(currentHour >= 18 && currentHour < 20){
+  greeting.innerHTML = "Good Evening !!";
+ }
 
 // Image changing according to time
-function wakeup(){
-  const img = new Image();
-  img.src = "images/wakeUp.png";
-  img.setAttribute("alt","WakeUp_image");
 
-  document.getElementById('change_img').appendChild(img);
+
+
+function wakeup(){
+ 
+  img.src = "images/wakeUp.png";
+  img.setAttribute("alt","wakeup_Img");
+  img.setAttribute("id","wake");
+
+  changeImg.appendChild(img);
 
   img.style.height = 608 + "px";
   img.style.width = 633 + "px";
   
-  const spanText = document.getElementById('ltext');
+  greeting.innerHTML = "Good Morning !!";
   spanText.innerHTML = "Wake Up !!";
 }
 
 function lunch(){
-  const img = new Image();
+ 
   img.src = "images/lunch.png";
   img.setAttribute("alt","Lunch_image");
+  img.setAttribute("id","wake");
   
-  document.getElementById('change_img').appendChild(img);
+  changeImg.appendChild(img);
 
   img.style.height = "650px";
   img.style.width = "650px";
 
-  const spanText = document.getElementById('ltext');
+  greeting.innerHTML = "Good Afternoon !!";
   spanText.innerHTML = "Let's have some lunch !!";
 }
 
 function night(){
-  const img = new Image();
+  
   img.src = "images/goodNight.png";
   img.setAttribute("alt","GoodNight_image");
+  img.setAttribute("id","wake");
  
-  document.getElementById('change_img').appendChild(img);
+  changeImg.appendChild(img);
 
-  const spanText = document.getElementById('ltext');
+  greeting.innerHTML = "Good Night !!";
   spanText.innerHTML = "Good Night !!";
+  
 }
 
-const date = new Date();
-const hour = date.getHours();
 
-// if(hour < 12){
-//   wakeup();
-// }
+function currentState(){
+  switch (true){
 
-// else if(hour < 18){
-//   lunch();
-// }
-
-// else{
-//   night();
-// }
-
-switch (true){
-
-  case (hour <= 12):
+  case (currentHour >=5 && currentHour < 12):
   wakeup();
   break;
 
-  case (hour < 18):
+  case (currentHour >= 12 && currentHour< 18):
   lunch();
   break;
 
-  case (hour < 23) :
+  case (currentHour >= 18 && currentHour < 24) :
   night();
   break;
 
+  }
+  
+
 }
+
+currentState();
+
+//Party button
+
+fun.addEventListener("click", ()=>{
+  
+  partyText.innerHTML = "End the Party";
+  
+  
+  img.src =  "./images/party.png";
+  changeImg.appendChild(img);
+
+  img.style.height = "540px";
+  img.style.width = "630px";
+  img.style.marginTop = "40px";
+
+  greeting.innerHTML = "Let's Party !!";
+
+  spanText.innerHTML = "Let's Have an Amazing Party !!";
+
+  disableImg.style.display = "none";
+  changeImg.appendChild(disableImg);
+});
+
+  fun.addEventListener("dblclick", ()=>{
+    partyText.innerHTML = "Party Time";
+    
+    currentState();
+  });
+
+
+
