@@ -18,7 +18,7 @@ const partyText = document.getElementById("ptext");
 const img = new Image();
 
 const fun = document.querySelector(".party");
-const disableImg = document.querySelectorAll("#wake");
+
 
 
 
@@ -131,8 +131,7 @@ fun.addEventListener("click", ()=>{
 
   spanText.innerHTML = "Let's Have an Amazing Party !!";
 
-  disableImg.style.display = "none";
-  changeImg.appendChild(disableImg);
+
 });
 
   fun.addEventListener("dblclick", ()=>{
