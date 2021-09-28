@@ -19,6 +19,10 @@ const img = new Image();
 
 const fun = document.querySelector(".party");
 
+const morning = document.querySelector(".morning-slot");
+const noon = document.querySelector(".noon-slot");
+const Night = document.querySelector(".night-slot");
+
 
 
 
@@ -140,5 +144,35 @@ fun.addEventListener("click", ()=>{
     currentState();
   });
 
+//select Otion
+
+
+morning.addEventListener("change", function() {
+    if (this.value == "select") {
+        currentState();
+    } else {
+        wakeup();
+    }
+
+});
+
+
+noon.addEventListener("change", function() {
+    if (this.value == "select") {
+        currentState();
+    } else {
+        lunch();
+    }
+
+});
+
+Night.addEventListener("change", function() {
+    if (this.value == "select") {
+        currentState();
+    } else {
+        night();
+    }
+
+});
 
 
