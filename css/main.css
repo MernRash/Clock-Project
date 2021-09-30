@@ -67,7 +67,7 @@ padding: 25px;
     display: none;
 }
 
-.party{
+#party{
     background-image: linear-gradient(to right, #6E54EC 20%, #CB52F8 , #FC5EFF , #F1A7C5 );
     height: 55px;
     width: 286px;
@@ -82,7 +82,7 @@ padding: 25px;
     
 }
 
-.party:hover{
+#party:hover{
     background-image: linear-gradient(to left, #6E54EC 15%, #CB52F8 , #FC5EFF , #F1A7C5 );;
 }
 #ptext{
@@ -397,9 +397,9 @@ option:hover{
         font-size: 2rem;
     }
 
-    .party{
+    #party{
         margin-left: 10px;
-        width: 220px;
+        width: 240px;
         font-size: 1.5rem;
     }
 }
@@ -497,7 +497,7 @@ option:hover{
          font-size: 2rem;
      }
  
-     .party{
+     #party{
          margin-left: 70px;
          width: 299px;
          font-size: 1.5rem;

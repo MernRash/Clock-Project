@@ -17,7 +17,7 @@ const spanText = document.getElementById('ltext');
 const partyText = document.getElementById("ptext");
 const img = new Image();
 
-const fun = document.querySelector(".party");
+const fun = document.getElementById("party");
 
 
 function takeZero(timeSpan) {
@@ -107,33 +107,37 @@ party();
 
 //Party button
 
-fun.addEventListener("click", ()=>{
-  
-  partyText.innerHTML = "End the Party";
-  
-  
-  
-  img.src =  "./images/party.png";
-  changeImg.appendChild(img);
+// Single Click
 
-  img.style.height = "540px";
-  img.style.width = "630px";
-  img.style.marginTop = "40px";
+let flag = false;
 
-  greeting.style.display = "block";
-  greeting.innerHTML = "Let's Party !!";
+fun.addEventListener("click",()=>{
 
-  spanText.innerHTML = "Let's Have an Amazing Party !!";
-
-
-});
-
-  fun.addEventListener("dblclick", ()=>{
+  if(flag){
     partyText.innerHTML = "Party Time";
     greeting.style.display = "none";
     party();
-    // currentState();
-  });
+   
+  }
+  else{
+    partyText.innerHTML = "End the Party";
+  
+    img.src =  "./images/party.png";
+    changeImg.appendChild(img);
+  
+    img.style.height = "540px";
+    img.style.width = "630px";
+    img.style.marginTop = "40px";
+  
+    greeting.style.display = "block";
+    greeting.innerHTML = "Let's Party !!";
+  
+    spanText.innerHTML = "Let's Have an Amazing Party !!";
+  }
+  flag = !flag;
+})
+
+ 
 
 //select Otion
 
