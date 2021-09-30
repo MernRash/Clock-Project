@@ -19,19 +19,17 @@ const img = new Image();
 
 const fun = document.querySelector(".party");
 
-const morning = document.querySelector(".morning-slot");
-const noon = document.querySelector(".noon-slot");
-const Night = document.querySelector(".night-slot");
-
-
-
-
 
 function takeZero(timeSpan) {
     return timeSpan < 10 ? '0'.concat(timeSpan) : timeSpan
 }
 function time() {
  
+  const currentDate = new Date();
+const currentSeconds = currentDate.getSeconds();
+const currentMinute = currentDate.getMinutes();
+const currentHour = currentDate.getHours(); 
+
      hourTime.innerHTML =    `${takeZero((currentHour % 12) || 12)}`;
      minTime.innerHTML  =    `${takeZero(currentMinute)}`;
      secTime.innerHTML  =    `${takeZero(currentSeconds)}`;
@@ -40,12 +38,8 @@ function time() {
 
 
 }
-setInterval(time, 500);
+setInterval(time, 1000  );
 
-  
- if(currentHour >= 18 && currentHour < 20){
-  greeting.innerHTML = "Good Evening !!";
- }
 
 // Image changing according to time
 
@@ -61,6 +55,7 @@ function wakeup(){
 
   img.style.height = 608 + "px";
   img.style.width = 633 + "px";
+  img.style.marginTop = "0";
   
   greeting.innerHTML = "Good Morning !!";
   spanText.innerHTML = "Wake Up !!";
@@ -95,33 +90,27 @@ function night(){
 }
 
 
-function currentState(){
-  switch (true){
+function party(){
+  img.src = "./images/chill.png";
+  changeImg.appendChild(img);
+  img.style.height = "540px";
+  img.style.width = "630px";
+  img.style.marginTop = "40px";
 
-  case (currentHour >=5 && currentHour < 12):
-  wakeup();
-  break;
-
-  case (currentHour >= 12 && currentHour< 18):
-  lunch();
-  break;
-
-  case (currentHour >= 18 && currentHour < 24) :
-  night();
-  break;
-
-  }
-  
-
+  greeting.style.display = "none";
+  spanText.innerHTML = "Amazing Party !!";
 }
 
-currentState();
+
+party();
+
 
 //Party button
 
 fun.addEventListener("click", ()=>{
   
   partyText.innerHTML = "End the Party";
+  
   
   
   img.src =  "./images/party.png";
@@ -131,6 +120,7 @@ fun.addEventListener("click", ()=>{
   img.style.width = "630px";
   img.style.marginTop = "40px";
 
+  greeting.style.display = "block";
   greeting.innerHTML = "Let's Party !!";
 
   spanText.innerHTML = "Let's Have an Amazing Party !!";
@@ -140,38 +130,55 @@ fun.addEventListener("click", ()=>{
 
   fun.addEventListener("dblclick", ()=>{
     partyText.innerHTML = "Party Time";
-    
-    currentState();
+    greeting.style.display = "none";
+    party();
+    // currentState();
   });
 
 //select Otion
 
+let morning = document.querySelector(".morning-slot");
+let Night = document.querySelector(".night-slot");
+let noon = document.querySelector(".noon-slot");
+
+let myDate = new Date();
+  let myTime = myDate.getHours();
+
 
 morning.addEventListener("change", function() {
-    if (this.value == "select") {
-        currentState();
-    } else {
-        wakeup();
-    }
 
+  if(this.value == myTime){
+    wakeup();
+    greeting.style.display = "block";
+  }
+  else{
+    party();
+  }
 });
+
 
 
 noon.addEventListener("change", function() {
-    if (this.value == "select") {
-        currentState();
-    } else {
-        lunch();
-    }
+  if(this.value == myTime){
+    lunch();
+    greeting.style.display = "block";
+  }
+  else{
+    party();
+  }
 
 });
 
+
+
 Night.addEventListener("change", function() {
-    if (this.value == "select") {
-        currentState();
-    } else {
-        night();
-    }
+  if(this.value == myTime){
+    night();
+    greeting.style.display = "block";
+  }
+  else {
+    party();
+  }
 
 });
 
