@@ -135,7 +135,7 @@ fun.addEventListener("click",()=>{
     spanText.innerHTML = "Let's Have an Amazing Party !!";
   }
   flag = !flag;
-})
+});
 
  
 
